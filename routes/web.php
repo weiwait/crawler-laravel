@@ -25,7 +25,7 @@ Route::get('download/{file}', function ($file) {
     return \Illuminate\Support\Facades\Storage::disk()->download('fictions/' . $file);
 });
 Route::get('delete/{file}', function ($file) {
-    \Illuminate\Support\Facades\Storage::disk()->delete('fictions/' . $file);
+    unlink(storage_path('app/public') . '/fictions/' . $file);
     return redirect('fictions');
 });
 
