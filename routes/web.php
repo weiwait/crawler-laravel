@@ -24,4 +24,8 @@ Route::get('fictions', [\App\Http\Controllers\CrawlerController::class, 'show'])
 Route::get('download/{file}', function ($file) {
     return \Illuminate\Support\Facades\Storage::disk()->download('fictions/' . $file);
 });
+Route::get('delete/{file}', function ($file) {
+    \Illuminate\Support\Facades\Storage::disk()->delete('fictions/' . $file);
+    return redirect('fictions');
+});
 
